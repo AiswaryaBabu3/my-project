@@ -8,10 +8,10 @@ import { BsFillUnlockFill } from "react-icons/bs";
 
 
 function Login() {
+  const history = useNavigate()
   const { register,
     formState: {errors}, 
     handleSubmit } = useForm();
-  const history = useNavigate();
 
   const onSubmit = (data) =>
   {
