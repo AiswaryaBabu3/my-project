@@ -1,18 +1,13 @@
 .form{
     padding: 100px;
-    background-image: url(./images/login-bg.webp);
-    background-repeat: no-repeat;
-    background-size: cover;
+    
     height: 650px;
 }
 .formarea{
-    margin: 7% 25%;
-    width: 40%;
+    width: 50%;
+    height: 100%;
     padding: 20px;
-    border: 2px solid rgb(34, 33, 33);
-    border-radius: 25px;
-    box-shadow: -10px -10px 5px #686767; 
-
+    float: right;
 }
 .h11{
     color: rgb(17, 0, 255);
@@ -29,6 +24,7 @@
     background-color: transparent;
     border: 2px solid rgb(17, 0, 255);
     color: white;
+    cursor: pointer;
 }
 .icon{
     background-color: transparent;
@@ -43,4 +39,32 @@
 .span{
     color: red;
     font-size: small;
+}
+.button{
+    border-radius: 25px;
+    width: 100px;
+}
+.box{
+    width: 100%;
+    height: 500px;
+    border-radius: 25px;
+    border: 2px solid black;
+}
+.boxleft{
+    float: left;
+    background-color: aqua;
+    width: 50%;
+    height: 100%;
+    background-image: url(./images/loginkey-bg.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+}
+@media only screen and (max-width:500px){
+    .boxleft{
+        display: none;
+    }
+    .formarea{
+        width: 100%;
+    }
 }

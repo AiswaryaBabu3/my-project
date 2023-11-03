@@ -1,71 +1,53 @@
 import "./Login.css"
 import React from "react";
+import Form from 'react-bootstrap/Form';
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
-import { BsFillPersonCheckFill } from "react-icons/bs";
-import { BsFillUnlockFill } from "react-icons/bs";
+
 
 
 function Login() {
-  const history = useNavigate()
+  const navigate = useNavigate();
   const { register,
     formState: {errors}, 
     handleSubmit } = useForm();
-
-  const onSubmit = (data) =>
-  {
-    if (data.username === "username" && data.password === "password") {
-      history.push("/"); // Navigate to the next page
-    }
-  };
-
+    const onSubmit = (data) => console.log(data);
+    console.log(errors);
   return (
     <div className="form">
+      <div className="box">
+        <div className="boxleft"></div>
         <div className="formarea">
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1 className="h11">LOG IN</h1>
-      <div className="icon">
-      <BsFillPersonCheckFill/></div>
-      <input
-      className="input"
-        type="text"
-        placeholder="Username"
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+      <Form.Label>Username</Form.Label> 
+      <Form.Control type="text" placeholder="Username" name="username"
         {...register("username",{ required: true, pattern:/^[a-zA-Z0-5]+$/})}/>
                 <p className="span"> 
             {errors.username?.type === "required" && "the username is required" }
             {errors.username?.type === "pattern" && "the username is invalid" }
             </p>
-            <div className="icon">
-      <BsFillUnlockFill/></div>
-      <input
-      className="input"
-        type="password"
-        placeholder="Password"
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" name="password"
+
         {...register("password",{required:true, pattern:/(?=^.{8,}$)(?=.*\d)(?=.*[!@#$%^&*]+)(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/})}/>      
+      <p>forgot password<a href="restart">Click here to reset!</a></p>
       <p className='span'> 
        {errors.password?.type === "required" && "the password is required"}
        {errors.password?.type === "pattern" && "the password is invalid"}
        </p>
+       </Form.Group>
       <br />
-      <Button type="submit">Login</Button>
+      <Button type="submit" className="button" onClick={()=>navigate("/home")}>Login</Button>
     </form>
+    </div>
     </div>
     </div>
   );
 }
 
 export default Login;
-
-
-
-
-
-
-
-
-
-
-
-
- 
