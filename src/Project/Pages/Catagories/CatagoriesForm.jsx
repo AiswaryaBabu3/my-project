@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import * as AiIcons from 'react-icons/ai'
-import * as GrIcons from 'react-icons/gr'
 import './Catagories.css'
 
 const CategoriesForm = ({ onFormSubmit, initialFormData, editMode }) => {
@@ -31,9 +29,7 @@ const CategoriesForm = ({ onFormSubmit, initialFormData, editMode }) => {
 
   return (
     <div>
-      <button onClick={handleFormSubmit} style={{ backgroundColor: 'blue', color: 'white', padding: '5px 10px' }} className='adding'>
-          {editMode ? <GrIcons.GrUpdate/> : <AiIcons.AiOutlineSave/>}
-        </button>
+     
       <form className='form'>
         <div style={{ marginBottom: '10px' }}>
           <label>Name: <span style={{ color: 'red' }}>*</span></label>
@@ -69,10 +65,22 @@ const CategoriesForm = ({ onFormSubmit, initialFormData, editMode }) => {
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           />
         </div>
-       
+        <button onClick={handleFormSubmit} style={{color: 'white', padding: '5px 10px' }} className='btn-save'>
+          {editMode ? 'Update' : 'Submit'}
+        </button>
       </form>
     </div>
   );
 };
 
 export default CategoriesForm;
+
+
+
+
+
+
+
+
+
+

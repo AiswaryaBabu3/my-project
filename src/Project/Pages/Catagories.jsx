@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import CategoriesForm from './Catagories/CatagoriesForm';
-import CategoriesTable from './Catagories/CatagoriesTable';
-import './Catagories/Catagories.css';
 import * as TiIcons from 'react-icons/ti';
+import './Catagories/Catagories.css';
+import CategoriesTable from './Catagories/CatagoriesTable';
+import CategoriesForm from './Catagories/CatagoriesForm';
 
-const Categories = () => {
+
+
+const Catagories = () => {
   const [data, setData] = useState([]);
   const [showForm, setShowForm] = useState(false);
-  const [editMode, setEditMode] = useState(false); // Added state for editMode
+  const [selectedItems, setSelectedItems] = useState([]);
+  const [editMode, setEditMode] = useState(false);
   const [categoryToEdit, setCategoryToEdit] = useState(null);
-
+  
   const handleFormSubmit = (formData) => {
     if (editMode) {
       // Update data
@@ -24,17 +27,8 @@ const Categories = () => {
     }
     setCategoryToEdit(null);
     setEditMode(false);
-    setShowForm(false);
-  };
-  
-  // Handle delete
-  const handleDelete = (categoryId) => {
-    // Delete data
-    const updatedCategories = data.filter((category) => category.id !== categoryId);
-    setData(updatedCategories);
   };
 
-  // Handle edit
   const handleEditClick = (categoryId) => {
     const categoryToEdit = data.find((item) => item.id === categoryId);
     if (categoryToEdit) {
@@ -44,12 +38,42 @@ const Categories = () => {
     }
   };
 
+  const handleToggleSelect = (itemId) => {
+    // Toggle selection for the item
+    setSelectedItems((prevSelected) => {
+      if (prevSelected.includes(itemId)) {
+        return prevSelected.filter((id) => id !== itemId);
+      } else {
+        return [...prevSelected, itemId];
+      }
+    });
+  };
+
+  // Handle going back
+  const handleGoBack = () => {
+    setShowForm(false);
+  };
+
+  const onDeleteSelected = () => {
+    // Filter out the selected items and update the data state
+    const newData = data.filter((item) => !selectedItems.includes(item.id));
+    setData(newData);
+    // Clear the selectedItems array
+    setSelectedItems([]);
+  };
+
   return (
-    <div className='container-fluid home1'>
+    <div className='container'>
       <h1 className="head">
-        Category
-        {!showForm && (
-          <button onClick={() => setShowForm(true)} className='adding'> <TiIcons.TiPlus/> </button>
+        Catagories
+        {!showForm ? (
+          <button onClick={() => setShowForm(true)} className='adding'>
+            <TiIcons.TiPlus />
+          </button>
+        ) : (
+          <button onClick={handleGoBack} className='adding'>
+            <TiIcons.TiArrowBack/>
+          </button>
         )}
       </h1>
       {showForm ? (
@@ -58,11 +82,17 @@ const Categories = () => {
           initialFormData={categoryToEdit}
           editMode={editMode}
         />
-      ) : (
-        <CategoriesTable data={data} onEdit={handleEditClick} onDelete={handleDelete} />
-      )}
+        ) : (
+          <CategoriesTable
+          data={data}
+          onEdit={handleEditClick}
+          selectedItems={selectedItems}
+          onToggleSelect={handleToggleSelect}
+          onDeleteSelected={onDeleteSelected} // Pass onDeleteSelected as a prop
+        />
+        )}
     </div>
   );
 };
 
-export default Categories;
+export default Catagories;

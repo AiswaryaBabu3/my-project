@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import * as AiIcons from 'react-icons/ai'
-import * as GrIcons from 'react-icons/gr'
+import 'bootstrap';
 import './Prouct.css'
 
-const ProductForm = ({ onFormSubmit, initialFormData, editMode, categories }) => {
+const ProductForm = ({ onFormSubmit, initialFormData, editMode }) => {
   const [formData, setFormData] = useState(initialFormData || { name: '', description: '', price: '', category: '' });
   const [errors, setErrors] = useState({});
 
   const handleFormSubmit = () => {
-    // Basic validation
+    // Basic validation 
     const newErrors = {};
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -31,9 +30,7 @@ const ProductForm = ({ onFormSubmit, initialFormData, editMode, categories }) =>
 
   return (
     <div>
-      <button onClick={handleFormSubmit} style={{ backgroundColor: 'blue', color: 'white', padding: '5px 10px' }} className='adding'>
-        {editMode ? <GrIcons.GrUpdate/> : <AiIcons.AiOutlineSave/>}
-      </button>
+     
       <form className='form'>
       <div style={{ marginBottom: '10px' }}>
   <label>Category:</label>
@@ -98,7 +95,7 @@ const ProductForm = ({ onFormSubmit, initialFormData, editMode, categories }) =>
       
         <div style={{ marginBottom: '10px' }}>
           <label>Start date: <span style={{ color: 'red' }}>*</span></label>
-          <input
+          <input 
             type="date"
             name="startdate"
             placeholder="Date"
@@ -143,6 +140,9 @@ const ProductForm = ({ onFormSubmit, initialFormData, editMode, categories }) =>
             onChange={(e) => setFormData({ ...formData, description: e.target.value })}
           />
         </div>
+        <button onClick={handleFormSubmit} style={{ color: 'white', padding: '5px 10px' }} className='save-btn'>
+        {editMode ? 'Update' : 'Save' }
+      </button>
       </form>
     </div>
   );

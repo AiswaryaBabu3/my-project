@@ -6,8 +6,6 @@
     border-bottom: 1px solid grey;
 }
 .adding{
-float: right;
-border-radius: 10px;
 text-align: center;
 font-size: 20px;
 padding: 8px;
@@ -16,7 +14,54 @@ border-radius: 5px;
 border: 1px solid black;
 color: white;
 background-color: #15171c;
+float: right;
+}
+.adding:hover{
+    opacity: 0.7;
 }
 .form{
     margin-top: 10px;
 }
+.btn-back{
+    text-align: center;
+font-size: 20px;
+padding: 8px;
+width: 40px;
+border-radius: 5px;
+border: 1px solid black;
+color: white;
+background-color: #15171c;
+float: right;
+}
+.btn-save{
+    background-color: green;
+    margin-left: 40%;
+    border: 2px solid green;
+    width: 20%;
+}
+.btn-save:hover{
+    background-color: rgb(24, 167, 24);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  td {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .actions {
+    width: 80px; /* Adjust the width as needed */
+    text-align: center;
+  }
