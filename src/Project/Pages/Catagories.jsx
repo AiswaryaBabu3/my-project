@@ -62,6 +62,11 @@ const Catagories = () => {
     setSelectedItems([]);
   };
 
+  const onSelectAll = (itemIds) => {
+    // Handle selecting or deselecting all items based on itemIds
+    setSelectedItems(itemIds);
+  };
+
   return (
     <div className='container'>
       <h1 className="head">
@@ -88,7 +93,8 @@ const Catagories = () => {
           onEdit={handleEditClick}
           selectedItems={selectedItems}
           onToggleSelect={handleToggleSelect}
-          onDeleteSelected={onDeleteSelected} // Pass onDeleteSelected as a prop
+          onDeleteSelected={onDeleteSelected}
+          onSelectAll={onSelectAll} // Pass onSelectAll as a prop
         />
         )}
     </div>

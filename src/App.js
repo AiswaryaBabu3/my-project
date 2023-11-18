@@ -18,17 +18,17 @@ function App() {
     <div>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path='/home' element={<Sidebar/>}>
-        <Route exact path="/home" element={<Home/>}/>
-        <Route path='/home/catalog/categories' element={<Catagories/>}/>
-        <Route path='/home/catalog/products' element={<Products/>}/>
-          <Route path='/home/design/layout' element={<Layout/>}/>
-          <Route path='/home/design/themeeditor' element={<Themeeditor/>}/>
-          <Route path='/home/sales/returns' element={<Returns/>}/>
-          <Route path='/home/sales/orders' element={<Orders/>}/>
-          <Route path='/home/customer/customer' element={<Customer/>}/>
-          <Route path='/home/customer/customergroup' element={<Customergroup/>}/>
+        <Route path="/admin" element={<Login/>} />
+        <Route path='/admin/home' element={<Sidebar/>}>
+        <Route exact path="/admin/home" element={<Home/>}/>
+        <Route path='/admin/home/catalog/categories' element={<Catagories/>}/>
+        <Route path='/admin/home/catalog/products' element={<Products/>}/>
+          <Route path='/admin/home/design/layout' element={<Layout/>}/>
+          <Route path='/admin/home/design/themeeditor' element={<Themeeditor/>}/>
+          <Route path='/admin/home/sales/returns' element={<Returns/>}/>
+          <Route path='/admin/home/sales/orders' element={<Orders/>}/>
+          <Route path='/admin/home/customer/customer' element={<Customer/>}/>
+          <Route path='/admin/home/customer/customergroup' element={<Customergroup/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

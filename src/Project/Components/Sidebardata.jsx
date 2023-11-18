@@ -9,7 +9,7 @@ import * as RiIcons from 'react-icons/ri'
 export const Sidebardata = [
     {
         title: "Dashboard",
-        path: "/home",
+        path: "/admin/home",
         icons:<AiIcons.AiFillDashboard/>,
         
     },
@@ -21,12 +21,12 @@ export const Sidebardata = [
         subNav: [
             {
                 title: "Categories",
-                path: "/home/catalog/categories",
+                path: "/admin/home/catalog/categories",
                 icons: <MdIcons.MdKeyboardDoubleArrowRight />,
             },
             {
                 title: "Products",
-                path: "/home/catalog/products",
+                path: "/admin/home/catalog/products",
                 icons: <MdIcons.MdKeyboardDoubleArrowRight />,
             }
         ]
@@ -39,12 +39,12 @@ export const Sidebardata = [
         subNav: [
             {
                 title: "Layout",
-                path: "/home/design/layout",
+                path: "/admin/home/design/layout",
                 icons:<MdIcons.MdKeyboardDoubleArrowRight/>, 
             },
             {
                 title: "Theme Editor",
-                path: "/home/design/themeeditor",
+                path: "/admin/home/design/themeeditor",
                 icons:<MdIcons.MdKeyboardDoubleArrowRight/>, 
             }
         ]
@@ -57,12 +57,12 @@ export const Sidebardata = [
         subNav: [
             {
                 title: "Orders",
-                path: "/home/sales/orders",
+                path: "/admin/home/sales/orders",
                 icons:<MdIcons.MdKeyboardDoubleArrowRight/>, 
             },
             {
                 title: "returns",
-                path: "/home/sales/returns",
+                path: "/admin/home/sales/returns",
                 icons:<MdIcons.MdKeyboardDoubleArrowRight/>, 
             }
         ]
@@ -75,12 +75,12 @@ export const Sidebardata = [
         subNav: [
             {
                 title: "Customer",
-                path: "/home/customer/customer",
+                path: "/admin/home/customer/customer",
                 icons:<MdIcons.MdKeyboardDoubleArrowRight/>, 
             },
             {
                 title: "Customer Group",
-                path: "/home/customer/customergroup",
+                path: "/admin/home/customer/customergroup",
                 icons:<MdIcons.MdKeyboardDoubleArrowRight/>, 
             }
         ]

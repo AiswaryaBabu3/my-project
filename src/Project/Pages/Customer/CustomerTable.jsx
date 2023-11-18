@@ -2,35 +2,28 @@
 
 import React, { useState, useEffect } from 'react';
 import * as AiIcons from 'react-icons/ai';
-import './Customer.css';
 
-const Customer = () => {
+const CustomerTable = () => {
   const [registrations, setRegistrations] = useState([]);
 
   useEffect(() => {
+   
+    // Fetch user registrations from the backend
     const fetchRegistrations = async () => {
       try {
         const response = await fetch('http://localhost:9090/api/user-registrations');
-        const data = await response.json();
-
-        // Ensure that the registrations array exists and has at least one element
-        if (data.registrations && data.registrations.length > 0) {
-          // Create a new array and reverse it to ensure the latest data appears first
-          const reversedRegistrations = [...data.registrations].reverse();
-
-          setRegistrations(reversedRegistrations);
-        }
+          const data = await response.json();
+          setRegistrations(data.registrations);
       } catch (error) {
         console.error('Error fetching user registrations:', error);
       }
     };
 
     fetchRegistrations();
-  }, []); // Dependency array is empty to ensure the effect runs only once
+  }, []);
 
   return (
-    <div className='customer'>
-     <h1 className='customer-head'> CUSTOMER</h1>
+    <div>
       <table>
         <thead>
           <tr>
@@ -38,7 +31,7 @@ const Customer = () => {
             <th>Email</th>
             <th>Contact No</th>
             <th>City</th>
-            <th>Password</th>
+            <th>Area</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -49,13 +42,13 @@ const Customer = () => {
               <td>{user.EmailID}</td>
               <td>{user.ContactNumber}</td>
               <td>{user.City}</td>
-              <td>{user.Password ? user.Password.replace(/./g, '*') : ''}</td>
+              <td>{user.Area}</td>
               <td>
                 <button
-                  className='btn'
-                  style={{ backgroundColor: 'red', color: 'white', padding: '5px 10px', marginRight: '5px' }}
+                  className="btn"
+                  style={{ backgroundColor: 'green', color: 'white', padding: '5px 10px', marginRight: '5px' }}
                 >
-                  <AiIcons.AiFillDelete />
+                  <AiIcons.AiFillEdit />
                 </button>
               </td>
             </tr>
@@ -66,4 +59,4 @@ const Customer = () => {
   );
 };
 
-export default Customer;
+export default CustomerTable;

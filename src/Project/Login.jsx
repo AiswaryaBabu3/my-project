@@ -42,7 +42,7 @@ function Login() {
        </p>
        </Form.Group>
       <br />
-      <Button type="submit" className="button" onClick={()=>navigate("/home")}>Login</Button>
+      <Button type="submit" className="button" onClick={()=>navigate("/admin/home")}>Login</Button>
     </form>
     </div>
     </div>

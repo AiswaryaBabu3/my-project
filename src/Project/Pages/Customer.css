@@ -1,0 +1,10 @@
+ .customer{
+    width: 82%;
+    height: 500px;
+    float: right;  
+ }
+ .customer-head{
+    color: #535252;
+    font-weight: bolder;  
+    margin: 10px;
+ }
